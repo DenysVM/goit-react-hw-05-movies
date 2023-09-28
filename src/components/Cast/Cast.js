@@ -1,6 +1,5 @@
-// Cast.js
 import React from 'react';
-import CastPage from '../pages/CastPage';
+import CastPage from '../../pages/CastPage/CastPage';
 
 function Cast() {
     return (

@@ -1,6 +1,5 @@
-// Movies.js
 import React from 'react';
-import MoviesPage from '../pages/MoviesPage';
+import MoviesPage from '../../pages/MoviesPage/MoviesPage';
 
 function Movies() {
     return (

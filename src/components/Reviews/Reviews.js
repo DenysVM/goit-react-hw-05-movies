@@ -1,6 +1,5 @@
-// Reviews.js
 import React from 'react';
-import ReviewsPage from '../pages/ReviewsPage';
+import ReviewsPage from '../../pages/ReviewsPage/ReviewsPage';
 
 function Reviews() {
     return (
