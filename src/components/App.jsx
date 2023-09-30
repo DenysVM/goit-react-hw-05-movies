@@ -9,9 +9,9 @@ const Layout = ({ children }) => (
   </div>
 );
 
-const Home = lazy(() => import('.//../pages/HomePage/HomePage'));
-const Movies = lazy(() => import('./Movies/Movies'));
-const MovieDetails = lazy(() => import('.//../pages/MovieDetailsPage/MovieDetailsPage'));
+const Home = lazy(() => import('pages/HomePage/HomePage'));
+const Movies = lazy(() => import('pages/MoviesPage/MoviesPage'));
+const MovieDetails = lazy(() => import('pages/MovieDetailsPage/MovieDetailsPage'));
 const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));
 

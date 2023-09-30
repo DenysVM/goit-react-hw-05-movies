@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, Outlet } from 'react-router-dom';
 import { getMovieDetails } from '../../services/MovieApi';
-import styles from './MovieDetailsPage.module.css';
+import styles from './MovieDetails.module.css';
 import defaultImage from '../../images/default_image.png';
 
 function MovieDetailsPage() {
