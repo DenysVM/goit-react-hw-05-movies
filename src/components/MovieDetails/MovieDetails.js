@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, Outlet } from 'react-router-dom';
 import { getMovieDetails } from '../../services/MovieApi';
 import styles from './MovieDetailsPage.module.css';
+import defaultImage from '../../images/default_image.png';
 
 function MovieDetailsPage() {
     const { movieId } = useParams();
@@ -31,7 +32,9 @@ function MovieDetailsPage() {
             </Link>
             <div className={styles.details}>
                 <img
-                    src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
+                    src={movieDetails.poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`
+                        : defaultImage}
                     alt={movieDetails.title}
                     className={styles.poster}
                 />

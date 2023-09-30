@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { fetchTrendingMovies } from '../../services/MovieApi';
 import styles from './Home.module.css';
