@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { searchMovies } from '../../services/MovieApi';
-import styles from './Movies.module.css'
+import styles from './Movies.module.css';
+import MoviesList from '../../components/MoviesList/MoviesList';
 
 function MoviesPage() {
     const location = useLocation();
+    const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [isEmptyQuery, setIsEmptyQuery] = useState(false);
@@ -14,22 +16,14 @@ function MoviesPage() {
         setSearchQuery(query);
 
         if (query) {
-            async function fetchMovies() {
-                try {
-                    const movies = await searchMovies(query);
-                    setSearchResults(movies);
-                } catch (error) {
-                    console.error('Error searching movies:', error);
-                }
-            }
-
-            fetchMovies();
+            fetchMovies(query);
         }
     }, [location.search]);
 
     const handleSearch = () => {
         if (searchQuery) {
-            search();
+            setIsEmptyQuery(false);
+            updateURL(searchQuery);
         } else {
             setIsEmptyQuery(true);
         }
@@ -37,26 +31,25 @@ function MoviesPage() {
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
-            if (searchQuery) {
-                search();
-            } else {
-                setIsEmptyQuery(true);
-            }
+            handleSearch();
         }
     };
 
-    const search = async () => {
+    const fetchMovies = async (query) => {
         try {
-            const movies = await searchMovies(searchQuery);
+            const movies = await searchMovies(query);
             setSearchResults(movies);
         } catch (error) {
             console.error('Error searching movies:', error);
         }
     };
 
+    const updateURL = (query) => {
+        navigate(`?query=${query}`);
+    };
+
     return (
-        <div className={styles['movies-container']
-        } >
+        <div className={styles['movies-container']}>
             <h1>Search Movies</h1>
             <div className={styles['search-container']}>
                 <input
@@ -71,13 +64,7 @@ function MoviesPage() {
                 </button>
             </div>
             {isEmptyQuery && <p>Please enter a search query</p>}
-            <ul>
-                {searchResults.map((movie) => (
-                    <li key={movie.id}>
-                        <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
-                    </li>
-                ))}
-            </ul>
+            <MoviesList movies={searchResults} />
         </div>
     );
 }
