@@ -1,13 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom'; 
-import Navbar from './Navbar/Navbar';
-
-const Layout = ({ children }) => (
-  <div>
-    <Navbar />
-    {children}
-  </div>
-);
+import { Route, Routes, Navigate } from 'react-router-dom'; 
+import Layout from './Layout/Layout';
 
 const Home = lazy(() => import('pages/HomePage/HomePage'));
 const Movies = lazy(() => import('pages/MoviesPage/MoviesPage'));
@@ -25,6 +18,7 @@ const App = () => (
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
+         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Suspense>
   </Layout>
