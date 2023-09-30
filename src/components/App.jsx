@@ -11,7 +11,7 @@ const Layout = ({ children }) => (
 
 const Home = lazy(() => import('.//../pages/HomePage/HomePage'));
 const Movies = lazy(() => import('./Movies/Movies'));
-const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails'));
+const MovieDetails = lazy(() => import('.//../pages/MovieDetailsPage/MovieDetailsPage'));
 const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));
 

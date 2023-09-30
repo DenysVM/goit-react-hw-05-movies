@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieDetailsPage from './MovieDetailsPage';
+import MovieDetailsPage from '..//..//components/MovieDetails/MovieDetails';
 
 function MovieDetails() {
     return (

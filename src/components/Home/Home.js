@@ -4,7 +4,7 @@ import styles from './Home.module.css';
 import MoviesList from '../../components/MoviesList/MoviesList';
 
 
-function Home() {
+function HomePage() {
     const [trendingMovies, setTrendingMovies] = useState([]);
 
     useEffect(() => {
@@ -28,4 +28,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default HomePage;
