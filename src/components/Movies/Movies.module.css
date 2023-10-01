@@ -18,17 +18,18 @@
 }
 
 .search-button {
-  background-color: #007bff;
+  background-color: #bdc1c5;
   color: #fff;
-  border: none;
   border-radius: 4px;
+  border: 1px solid #bdc1c5;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
 }
 
 .search-button:hover {
-  background-color: #0056b3;
+  color: #555555;
+  border-color: #010101;
 }
 
 ul {

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, NavLink, Link, Outlet } from 'react-router-dom';
 import { getMovieDetails } from '../../services/MovieApi';
 import styles from './MovieDetails.module.css';
 import defaultImage from '../../images/default_image.png';
+import styled from 'styled-components';
 
 function MovieDetailsPage() {
     const { movieId } = useParams();
@@ -24,6 +25,14 @@ function MovieDetailsPage() {
     if (!movieDetails) {
         return <div>Loading...</div>;
     }
+
+    const StyledNavLink = styled(NavLink)`
+    &.active {
+    font-weight: bold;
+    color: #007bff; 
+    border: 2px solid #007bff;
+  }
+`;
 
     return (
         <div className={styles.container}>
@@ -51,12 +60,13 @@ function MovieDetailsPage() {
             </div>
             <div className={styles.additionalInfo}>
                 <h2>Additional information</h2>
-                <div className={styles.infoLinks}><Link to={`cast`} className={styles.link}>
-                    Cast
-                </Link>
-                    <Link to={`reviews`} className={styles.link}>
+                <div className={styles.infoLinks}>
+                    <StyledNavLink to={`cast`} className={styles.link}>
+                        Cast
+                    </StyledNavLink>
+                    <StyledNavLink to={`reviews`} className={styles.link}>
                         Reviews
-                    </Link></div>
+                    </StyledNavLink></div>
             </div>
             <Outlet />
         </div>

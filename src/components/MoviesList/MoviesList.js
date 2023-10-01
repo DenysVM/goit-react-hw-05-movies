@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './MoviesList.module.css'; // Импортируем CSS модуль
 
 function MoviesList({ movies }) {
@@ -8,7 +8,7 @@ function MoviesList({ movies }) {
             {movies.map((movie) => (
                 <li key={movie.id} className={styles['movie-item']}>
                     <span className={styles['movie-icon']}>🎬</span>
-                    <Link to={`/movies/${movie.id}`} className={styles['movie-link']}>{movie.title}</Link>
+                    <NavLink to={`/movies/${movie.id}`} className={styles['movie-link']}>{movie.title}</NavLink>
                 </li>
             ))}
         </ul>

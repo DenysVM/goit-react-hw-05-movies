@@ -21,7 +21,6 @@ function ReviewsPage() {
 
     return (
         <div>
-            <h2>Reviews</h2>
             <ul>
                 {reviews.length > 0 ? (
                     reviews.map((review) => (
